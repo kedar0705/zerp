@@ -17,29 +17,48 @@ class Database(ConnectDB):
             cursor = self.conn.cursor()
             sql = "INSERT INTO employee(emp_name, age) VALUES(%s,%s)"
 
-            for val in values:
-                cursor.execute(sql, val)
-
-            # cursor.executemany(sql, values)
-            self.conn.commit()
-            cursor.close()
+            with self.conn.cursor() as cursor:
+                for val in values:
+                    cursor.execute(sql, val)
+                self.conn.commit()
+            # cursor.close()
             return 'Data has been inserted'
         except Error as e:
             return f'Error inserting data: {e}'
+
+    def read_all_data(self):
+        try:
+            with self.conn.cursor() as cursor:
+                cursor.execute("SELECT * FROM employee")
+                result = cursor.fetchall()
+            return result
+
+        except Error as e:
+            return f'Error fetching data: {e}'
+        except AttributeError as e:
+            return f'Attribute error: {e}'
 
     def read_data(self, val):
         try:
             # self.cursor.execute(query)
             # result = self.cursor.fetchall()
-            cursor = self.conn.cursor()
+
+            # cursor = self.conn.cursor()
             result = []
             sql = "SELECT * FROM employee WHERE id = %s"
 
-            for i in val:
-                cursor.execute(sql, i)
-                res = cursor.fetchall()
-                result.extend(res)
-            cursor.close()
+            # for i in val:
+            #     cursor.execute(sql, i)
+            #     res = cursor.fetchall()
+            #     result.extend(res)
+            # cursor.close()
+
+            with self.conn.cursor() as cursor:
+                for i in val:
+                    cursor.execute(sql, i)
+                    res = cursor.fetchall()
+                    result.extend(res)
+            # print(cursor.close())
             return result
 
         except Error as e:
@@ -53,12 +72,12 @@ class Database(ConnectDB):
             cursor = self.conn.cursor()
             sql = "UPDATE employee SET emp_name = %s WHERE id = %s"
 
-            for i in val:
-                cursor.execute(sql, i)
+            with self.conn.cursor() as cursor:
+                for i in val:
+                    cursor.execute(sql, i)
             # cursor.executemany(sql, val)
-
-            self.conn.commit()
-            cursor.close()
+                self.conn.commit()
+            # cursor.close()
             return 'Data has been updated.'
         except Error as e:
             return f'Error updating data: {e}'
@@ -69,12 +88,12 @@ class Database(ConnectDB):
             cursor = self.conn.cursor()
             sql = 'DELETE FROM employee WHERE id = %s'
 
-            for i in val:
-                cursor.execute(sql, i)
-
+            with self.conn.cursor() as cursor:
+                for i in val:
+                    cursor.execute(sql, i)
             # cursor.executemany(sql, val)
-            self.conn.commit()
-            cursor.close()
+                self.conn.commit()
+            # cursor.close()
             return 'Data has been deleted..'
         except Error as e:
             return f'Error deleting data: {e}'

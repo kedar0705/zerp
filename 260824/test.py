@@ -10,9 +10,9 @@ config_sql = {
 }
 
 db = Database(config_sql)
-db1 = Database(config_sql)
-
-print(db == db1)
+# db1 = Database(config_sql)
+#
+# print(db == db1)
 
 # db_ins = db.insert_emp("INSERT INTO employee(emp_name, age) VALUES('AAA',27);")
 # db_ins = db.insert_emp("INSERT INTO employee VALUES(105, 'AAA',27);")
@@ -38,12 +38,14 @@ read_val = [
 db_result = db.read_data(read_val)
 print(db_result)
 
-# update_val = [
-#     ('Ram', 110),
-#     ('Akash', 111)
-# ]
-# db_update = db.update_data(update_val)
-# print(db_update)
+# print(db.read_all_data())
+
+update_val = [
+    ('Ram', 112),
+    ('Akash', 113)
+]
+db_update = db.update_data(update_val)
+print(db_update)
 
 # delete_val = [
 #     (110,), (111,)
