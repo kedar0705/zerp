@@ -14,17 +14,6 @@ db = Database(config_sql)
 #
 # print(db == db1)
 
-# db_ins = db.insert_emp("INSERT INTO employee(emp_name, age) VALUES('AAA',27);")
-# db_ins = db.insert_emp("INSERT INTO employee VALUES(105, 'AAA',27);")
-# print(db_ins)
-
-# db_update = db.update_data("UPDATE employee SET emp_name = 'Sanjay' WHERE id = 107")
-# db_update = db.update_data("UPDATE employee SET id = 105 WHERE emp_name = 'Sanjay'")
-# print(db_update)
-
-# db_delete = db.delete_data("DELETE FROM employee WHERE id = 105")
-# print(db_delete)
-
 # val = [
 #     ('AAA', 30),
 #     ('BBB', 45)
