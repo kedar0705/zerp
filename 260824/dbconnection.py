@@ -20,6 +20,7 @@ class ConnectDB:
             if self.pool is None:
                 self.pool = pooling.MySQLConnectionPool(pool_name="samplepool",
                                                         pool_size=3,
+                                                        pool_reset_session=True,
                                                         **self.config)
                 print("Connection pool created.")
         except Error as e:
