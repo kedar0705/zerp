@@ -53,4 +53,4 @@ print(db_result)
 # db_delete = db.delete_data(delete_val)
 # print(db_delete)
 
-db.close_conn()
+db.close_conn(db.conn)

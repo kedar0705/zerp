@@ -14,7 +14,7 @@ class Database(ConnectDB):
 
     def insert_data(self, values: list):
         try:
-            cursor = self.conn.cursor()
+            # cursor = self.conn.cursor()
             sql = "INSERT INTO employee(emp_name, age) VALUES(%s,%s)"
 
             with self.conn.cursor() as cursor:
@@ -32,7 +32,6 @@ class Database(ConnectDB):
                 cursor.execute("SELECT * FROM employee")
                 result = cursor.fetchall()
             return result
-
         except Error as e:
             return f'Error fetching data: {e}'
         except AttributeError as e:
@@ -69,7 +68,7 @@ class Database(ConnectDB):
     def update_data(self, val):
         try:
             # self.cursor.execute(query)
-            cursor = self.conn.cursor()
+            # cursor = self.conn.cursor()
             sql = "UPDATE employee SET emp_name = %s WHERE id = %s"
 
             with self.conn.cursor() as cursor:
