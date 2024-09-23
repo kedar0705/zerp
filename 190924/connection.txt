@@ -1,0 +1,12 @@
+**pooling**
+A database connection pool is a cache of database connections that can be reused by multiple clients or threads.
+Instead of opening and closing a new connection for each database operation, a connection pool maintains a set of open connections that can be borrowed and returned as needed.
+
+**How It Works**
+Initialization: A pool of connections is created and maintained.
+Borrowing: When a client needs to perform a database operation, it borrows a connection from the pool.
+Returning: After the operation is complete, the connection is returned to the pool for future use.
+
+*********
+commit and rollback
+conn.autocommit = False

@@ -40,12 +40,12 @@ print(db_result)
 
 # print(db.read_all_data())
 
-update_val = [
-    ('Ram', 112),
-    ('Akash', 113)
-]
-db_update = db.update_data(update_val)
-print(db_update)
+# update_val = [
+#     ('Ram', 112),
+#     ('Akash', 113)
+# ]
+# db_update = db.update_data(update_val)
+# print(db_update)
 
 # delete_val = [
 #     (110,), (111,)
