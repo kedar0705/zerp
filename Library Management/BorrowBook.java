@@ -31,6 +31,7 @@ public class BorrowBook {
                 }
                 else {
                     System.out.println("Book " + bookID + " is not available.");
+                    writer.write(line + "\n");
                     break;
                 }
             } else {
