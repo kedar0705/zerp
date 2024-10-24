@@ -19,7 +19,6 @@ public class SearchBook {
                     System.out.println("Author: " + bookDetails[2]);
                     System.out.println("Genre: " + bookDetails[3]);
                     System.out.println("Availability: " + bookDetails[4]);
-                    System.out.println("Status: " + bookDetails[5]);
                     break;
                 }
             }

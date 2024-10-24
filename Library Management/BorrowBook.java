@@ -22,10 +22,17 @@ public class BorrowBook {
         while ((line = reader.readLine()) != null) {
             String[] bookDetails = line.split(", ");
             if (bookDetails[0].equals(bookID)) {
-                bookDetails[4] = "Not Available";
-                bookDetails[5] = "Checked out";
-                String newLine = String.join(", ", bookDetails);
-                writer.write(newLine + "\n");
+                if (bookDetails[4].equals("Available")){
+                    bookDetails[4] = "Not Available";
+                    bookDetails[5] = "Checked out";
+                    String newLine = String.join(", ", bookDetails);
+                    writer.write(newLine + "\n");
+                    System.out.println("Book with ID " + bookID + " checked out.");
+                }
+                else {
+                    System.out.println("Book " + bookID + " is not available.");
+                    break;
+                }
             } else {
                 writer.write(line + "\n");
             }
@@ -36,6 +43,5 @@ public class BorrowBook {
         inputFile.delete();
         tempFile.renameTo(inputFile);
         
-        System.out.println("Book with ID " + bookID + " checked out.");
     }
 }
