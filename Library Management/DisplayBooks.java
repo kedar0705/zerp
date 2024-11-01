@@ -3,7 +3,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 
 public class DisplayBooks {
-    public static void readBooks() throws IOException {
+    public static void displayAllBooks() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("lib_data.txt"));
         String line;
             while ((line = reader.readLine()) != null) {

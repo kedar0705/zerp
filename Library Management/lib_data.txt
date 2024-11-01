@@ -1,2 +1,2 @@
-101, Ponniyin Selvan, Kalki, Historical, Not Available, Checked out
-102, Parthiban Kanavu, Kalki, Historical, Available, Checked in
+101, Ponniyin Selvan, Kalki, Historical, Unavailable, Checked out
+102, Parthiban Kanavu, Kalki, Historical, Unavailable, Checked out

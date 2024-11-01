@@ -10,7 +10,6 @@ public class BorrowBook {
         Scanner inpObj = new Scanner(System.in);
         System.out.println("Enter Book ID to borrow: ");
         String bookID = inpObj.next();
-        inpObj.close();
         
         File inputFile = new File("lib_data.txt");
         File tempFile = new File("books_temp.txt");
@@ -22,17 +21,15 @@ public class BorrowBook {
         while ((line = reader.readLine()) != null) {
             String[] bookDetails = line.split(", ");
             if (bookDetails[0].equals(bookID)) {
-                if (bookDetails[4].equals("Available")){
-                    bookDetails[4] = "Not Available";
+                if (bookDetails[4].equals("Available")) {
+                    bookDetails[4] = "Unavailable";
                     bookDetails[5] = "Checked out";
                     String newLine = String.join(", ", bookDetails);
                     writer.write(newLine + "\n");
-                    System.out.println("Book with ID " + bookID + " checked out.");
-                }
-                else {
-                    System.out.println("Book " + bookID + " is not available.");
+                    System.out.println("Book: " + bookID + " checked out.");
+                } else {
+                    System.out.println("Book is not available for borrowing.");
                     writer.write(line + "\n");
-                    break;
                 }
             } else {
                 writer.write(line + "\n");

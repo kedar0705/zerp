@@ -10,7 +10,6 @@ public class ReturnBook {
         Scanner inpObj = new Scanner(System.in);
         System.out.println("Enter Book ID to return: ");
         String bookID = inpObj.next();
-        inpObj.close();
         
         File inputFile = new File("lib_data.txt");
         File tempFile = new File("books_temp.txt");

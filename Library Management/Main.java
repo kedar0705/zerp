@@ -3,54 +3,61 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Library Management System\n" + 
-                        "1. Add a Book\n" + //
-                        "2. Remove a Book\n" + //
-                        "3. Search for a Book\n" + //
-                        "4. Borrow a Book\n" + //
-                        "5. Return a Book\n" + //
-                        "6. Display All Books\n" + //
-                        "7. Exit\n" + //
-                        "Choose an option (1-7):");
-
+        boolean exit = false;
         Scanner option = new Scanner(System.in);
-        int opt = option.nextInt();
-            
-        switch (opt) {
-            case 1:
-                AddBook.addBooks();
-                break;
 
-            case 2:
-                RemoveBook.removeBook();
-                break;
+        while (!exit) {
+            System.out.println("Library Management System\n" + 
+                            "1. Add a Book\n" + 
+                            "2. Remove a Book\n" + 
+                            "3. Search for a Book\n" + 
+                            "4. Borrow a Book\n" + 
+                            "5. Return a Book\n" + 
+                            "6. Display All Books\n" + 
+                            "7. Exit\n" + 
+                            "Choose an option (1-7):");
 
-            case 3:
-                SearchBook.searchBooks();
-                break;
-
-            case 4:
-                BorrowBook.borrowBook();
-                break;
-
-            case 5:
-                ReturnBook.returnBook();
-                break;
-
-            case 6:
-                DisplayBooks.readBooks();
-                break;
+            int opt = option.nextInt();
                 
-            case 7:
-                System.out.println("Thank you.");
-                break;
+            switch (opt) {
+                case 1:
+                    AddBook.addBooks();
+                    System.out.println("\n");
+                    break;
 
-            default:
-                System.out.println("Enter a valid option.");
-                break;
+                case 2:
+                    RemoveBook.removeBook();
+                    System.out.println("\n");
+                    break;
+
+                case 3:
+                    SearchBook.searchBooks();
+                    System.out.println("\n");
+                    break;
+
+                case 4:
+                    BorrowBook.borrowBook();
+                    System.out.println("\n");
+                    break;
+
+                case 5:
+                    ReturnBook.returnBook();
+                    System.out.println("\n");
+                    break;
+
+                case 6:
+                    DisplayBooks.displayAllBooks();
+                    System.out.println("\n");
+                    break;
+
+                case 7:
+                    exit = true;
+                    break;
+
+                default:
+                    System.out.println("Invalid option. Please choose a number between 1 and 7.");
+                    break;
+            }
         }
-
-        option.close();
-        
     }
 }

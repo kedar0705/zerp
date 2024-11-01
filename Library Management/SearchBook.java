@@ -9,7 +9,6 @@ public class SearchBook {
         System.out.println("Enter Book ID:");
         Scanner inpObj = new Scanner(System.in);
         String bookID = inpObj.next();
-        inpObj.close();
         String line;
             while ((line = reader.readLine()) != null) {
                 String[] bookDetails = line.split(", ");

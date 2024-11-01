@@ -24,11 +24,10 @@ public class AddBook {
         String author = scanner.nextLine();
         System.out.println("Enter Genre: ");
         String genre = scanner.nextLine();
-        System.out.println("Enter Availability: ");
-        String availability = scanner.nextLine();
-        System.out.println("Enter Status: ");
-        String status = scanner.nextLine();
-        scanner.close();
+        
+        String availability = "Available";
+        String status = "Checked in";
+
         String book = bookID + ", " + title + ", " + author + ", " + genre + ", " + availability + ", " + status;
 
         try {
@@ -37,6 +36,7 @@ public class AddBook {
             writer.close();
             System.out.println("Book details added to text file.");
         } catch (IOException e) {
+            System.out.println("An error occurred.");
             e.printStackTrace();
         }
 
